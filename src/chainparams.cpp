@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("03dd0c8fb82bc09a95c10ec11546888424786f4371e210f89a0588e302cec83f"));
+    (0, uint256("0000000000000000000000000000000000000000000000000000000000000000"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1536307200, // * UNIX timestamp of last checkpoint block
+    1536368400, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1536307200,
+    1536368400,
     0,
     250};
 
@@ -75,7 +75,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1536307200,
+    1536368400,
     0,
     100};
 
@@ -106,8 +106,8 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // TorkilCoin: 1 day
         nTargetSpacing = 1 * 60;  // TorkilCoin: 1 minute
-        nLastPOWBlock = 600;
-        nMaturity = 81;
+        nLastPOWBlock = 100;
+        nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMasternodeCollateralLimit = 5000;
         nModifierUpdateBlock = 615800;
@@ -123,7 +123,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Torkilcoin is a coin for an economic gaming system built on a chain of blocks!";
+        const char* pszTimestamp = "Torkilkane is a coin for an economic gaming system built on its own chain of blocks!";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -134,12 +134,12 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1536307200;
+        genesis.nTime = 1536368400;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2394236;
+        genesis.nNonce = ;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("03dd0c8fb82bc09a95c10ec11546888424786f4371e210f89a0588e302cec83f"));
+        assert(hashGenesisBlock == uint256("0000000000000000000000000000000000000000000000000000000000000000"));
         assert(genesis.hashMerkleRoot == uint256("7f1cec8f02a191c74fd681e0a02b7b1116c38d7338989cdb5872221cfd510685"));
 
         vSeeds.push_back(CDNSSeedData("89.223.95.44", "89.223.95.44"));         // Single node address
@@ -169,7 +169,7 @@ public:
         strSporkKey = "04a800fd21d66d68fb5ca725403cabed0af5b8b3940912ad09324d9cabe140c507829b68faa231c4f6a7f6761df69bdbdce5d86d78f34cbbb74d1339036b6d91c5";
         strObfuscationPoolDummyAddress = "LvFrj7JAfJiPbg6uRsFt19y5g9XLqjNhMT";
 		
-        nStartMasternodePayments = 1536307200; // Wed, 22 Aug 2018 13:00:00 GMT
+        nStartMasternodePayments = 1536368400; // Wed, 22 Aug 2018 13:00:00 GMT
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -209,11 +209,11 @@ public:
         nMaxMoneyOut = 43199500 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1536307200;
-        genesis.nNonce = 2394236;
+        genesis.nTime = 1536368400;
+        genesis.nNonce = ;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("03dd0c8fb82bc09a95c10ec11546888424786f4371e210f89a0588e302cec83f"));
+        assert(hashGenesisBlock == uint256("0000000000000000000000000000000000000000000000000000000000000000"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -245,7 +245,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04ca864ee5e01ddf5ec4db13d7df059ce12741a9c90fb68ba2c84695b1d2217b143fbb86c9e7cd37a27161b1da170ed12b1d7ecfb8d84b70ebd2eab29f9871d556";
         strObfuscationPoolDummyAddress = "y8KEMM6ougXLvtndi7S3THKgxPWBUuxvQP";
-        nStartMasternodePayments = 1536307200; // Wed, 22 Aug 2018 13:00:00 GMT
+        nStartMasternodePayments = 1536368400; // Wed, 22 Aug 2018 13:00:00 GMT
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -277,13 +277,13 @@ public:
         nTargetTimespan = 24 * 60 * 60; // TorkilCoin: 1 day
         nTargetSpacing = 1 * 60;        // TorkilCoin: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1536307200;
+        genesis.nTime = 1536368400;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 906460;
+        genesis.nNonce = ;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 39393;
-        assert(hashGenesisBlock == uint256("29833ef5aab58802f62402dc510d307a914326d7418ee8fdb5a8f21fb43e3bc8"));
+        assert(hashGenesisBlock == uint256("0000000000000000000000000000000000000000000000000000000000000000"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
